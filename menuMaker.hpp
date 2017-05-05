@@ -25,6 +25,7 @@ private:
     std::string menuThree   = "";
     std::string menuFour    = "";
     std::string menuFive    = "";
+	std::string menuSix		= "";
     std::string initQues    = "";
 
 	int response;
@@ -39,6 +40,9 @@ public:
               std::string quesThree, std::string quesFour);
 	menuMaker(std::string initQuest, std::string quesOne, std::string quesTwo,
               std::string quesThree, std::string quesFour, std::string quesFive);
+
+	menuMaker(std::string initQuest, std::string quesOne, std::string quesTwo,
+			  std::string quesThree, std::string quesFour, std::string quesFive, std::string quesSix);
 
 	// Prints and asks the user for a response
     void prompt();

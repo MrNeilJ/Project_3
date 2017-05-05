@@ -1,13 +1,11 @@
 #include <iostream>
 #include "menuMaker.hpp"
 
-#include "Vampire.hpp"
-#include "Barbarian.hpp"
-#include "BlueMen.hpp"
-#include "Medusa.hpp"
-#include "HarryPotter.hpp"
+#include "Game.hpp"
 
 int main() {
+	Game gameTime;
+
 	std::cout << "*****************************************" << std::endl;
 	std::cout << "*         MONSTER BATTLE ROYALE         *" << std::endl;
 	std::cout << "*****************************************" << std::endl;
@@ -21,12 +19,13 @@ int main() {
 							"Barbarian",
 							"Blue Men",
 							"Medusa",
-							"Harry Potter");
+							"Harry Potter",
+							"Quit");
 
 	menuMaker monsterConfirmation(	"Is this the character you'd like to play as?",
 									"Yes",
 									"No",
-									"Quit");
+									"Character Select");
 
 	int monsterChoice = -1;
 	int monsterConfirm = -1;
@@ -38,42 +37,22 @@ int main() {
 		if (monsterChoice == 1) {
 			std::cout << "VAMPIRE:" << std::endl;
 			std::cout << "--------------------------------" << std::endl;
-			std::cout << Vampire.description()				<< std::endl;
-
-			monsterConfirmation.prompt();
-			monsterConfirm = monsterConfirmation.getResponse();
 		}
 		else if (monsterChoice == 2) {
 			std::cout << "BARBARIAN:" << std::endl;
 			std::cout << "--------------------------------" << std::endl;
-			std::cout << Barbarian.description()			<< std::endl;
-
-			monsterConfirmation.prompt();
-			monsterConfirm = monsterConfirmation.getResponse();
 		}
 		else if (monsterChoice == 3) {
 			std::cout << "BLUE MEN:" << std::endl;
 			std::cout << "--------------------------------" << std::endl;
-			std::cout << BlueMen.description()				<< std::endl;
-
-			monsterConfirmation.prompt();
-			monsterConfirm = monsterConfirmation.getResponse();
 		}
 		else if (monsterChoice == 4) {
 			std::cout << "MEDUSA:" << std::endl;
 			std::cout << "--------------------------------" << std::endl;
-			std::cout << Medusa.description()				<< std::endl;
-
-			monsterConfirmation.prompt();
-			monsterConfirm = monsterConfirmation.getResponse();
 		}
 		else if (monsterChoice == 5) {
 			std::cout << "HARRY POTTER:" << std::endl;
 			std::cout << "--------------------------------" << std::endl;
-			std::cout << HarryPotter.description()			<< std::endl;
-
-			monsterConfirmation.prompt();
-			monsterConfirm = monsterConfirmation.getResponse();
 		}
 		else if (monsterChoice == 6) {
 			std::cout << "I see the fear is strong in you, goodbye" << std::endl;
@@ -82,8 +61,14 @@ int main() {
 			std::cout << "Incorrect response, try again\n" << std::endl;
 		}
 
-	} while(monsterChoice == 4 || monsterChoice > 6 || monsterChoice < 1 &&
-		   (monsterConfirm < 1 || monsterConfirm > 2));
+		if (monsterChoice > 0 && monsterChoice < 6) {
+			gameTime.classDescriptions(monsterChoice);
+			monsterConfirmation.prompt();
+			monsterConfirm = monsterConfirmation.getResponse();
+
+		}
+
+	} while((monsterChoice == 6) || (monsterConfirm > 1 && monsterConfirm < 4));
 
 
 	return 0;

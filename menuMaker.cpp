@@ -88,6 +88,22 @@ menuMaker::menuMaker(std::string userQues, std::string quesOne, std::string ques
 }
 
 /**************************************************************
+ *                  menuMaker::menuMaker
+ * Description: Constructor function that saves the initial
+ * question and first six question variables.
+**************************************************************/
+menuMaker::menuMaker(std::string userQues, std::string quesOne, std::string quesTwo, std::string quesThree,
+					 std::string quesFour, std::string quesFive, std::string quesSix) {
+	menuOne     = quesOne;
+	menuTwo     = quesTwo;
+	menuThree   = quesThree;
+	menuFour    = quesFour;
+	menuFive    = quesFive;
+	menuSix		= quesSix;
+	initQues 	= userQues;
+}
+
+/**************************************************************
  *                  menuMaker::prompt
  * Description: Member function that prints out the initial question
  * and the options for the user to see in an easy to read format.
@@ -119,6 +135,10 @@ void menuMaker::prompt() {
 		}
 		if (!(menuFive == "")) {
 			std::cout << "5) " << menuFive << std::endl;
+			count++;
+		}
+		if (!(menuSix == "")) {
+			std::cout << "6) " << menuSix<< std::endl;
 			count++;
 		}
 
@@ -166,6 +186,9 @@ int menuMaker::getMenuSize() {
 		count++;
 	}
 	if (!(menuFive == "")) {
+		count++;
+	}
+	if (!(menuSix == "")) {
 		count++;
 	}
 	return count;
