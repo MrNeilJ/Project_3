@@ -13,8 +13,6 @@ private:
 public:
 	Barbarian();
 
-	void description();
-
 };
 
 

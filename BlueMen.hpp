@@ -6,7 +6,9 @@
 #define PROJECT_3_BLUEMEN_HPP
 
 
-class BlueMen {
+#include "Creature.hpp"
+
+class BlueMen : public Creature {
 
 };
 

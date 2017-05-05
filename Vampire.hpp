@@ -6,7 +6,9 @@
 #define PROJECT_3_VAMPIRE_HPP
 
 
-class Vampire {
+#include "Creature.hpp"
+
+class Vampire : public Creature{
 
 };
 

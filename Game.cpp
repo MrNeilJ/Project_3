@@ -3,6 +3,11 @@
 //
 
 #include "Game.hpp"
+#include "Vampire.hpp"
+#include "Barbarian.hpp"
+#include "BlueMen.hpp"
+#include "Medusa.hpp"
+#include "HarryPotter.hpp"
 
 void Game::classDescriptions(int userChoice) {
 	if (userChoice == 1) {
@@ -27,5 +32,91 @@ void Game::classDescriptions(int userChoice) {
 }
 
 Game::Game() {
-	temp = 0;
+	currOpp = -1;
 }
+
+void Game::setOpponent(int currOpp, int userCreature) {
+	if (userCreature == 1) {
+		Opponents[currOpp] = new Vampire;
+	}
+	else if (userCreature == 2) {
+		Opponents[currOpp] = new Barbarian;
+	}
+	else if (userCreature == 3) {
+		Opponents[currOpp] = new BlueMen;
+	}
+	else if (userCreature == 4) {
+		Opponents[currOpp] = new Medusa;
+	}
+	else if (userCreature == 5) {
+		Opponents[currOpp] = new HarryPotter;
+	}
+}
+
+void Game::round() {
+	// If it is oppenent one's turn
+
+	if (currOpp == 0) {
+		std::cout << "OPPONENT 1's TURN TO ATTACK:" << std::endl;
+		std::cout << "----------------------------------------" << std::endl;
+		Opponents[0]->rollAttack();
+		currAttack = Opponents[0]->getAttack();
+
+		Opponents[1]->rollDefense();
+		currDefense = Opponents[1]->getDefense();
+
+		currStrengthLoss = Opponents[1]->strengthloss(currAttack);
+
+		std::cout << "Opponent 1's Attack:  " << currAttack  << std::endl;
+		std::cout << "Opponent 2's Defense: " << currDefense << std::endl;
+		std::cout << "\nStrength Loss:        " << currStrengthLoss << std::endl;
+
+		currOpp = 1;
+	}
+	else {
+		std::cout << "OPPONENT 2's TURN TO ATTACK:" << std::endl;
+		std::cout << "----------------------------------------" << std::endl;
+		Opponents[1]->rollAttack();
+		currAttack = Opponents[1]->getAttack();
+
+		Opponents[0]->rollDefense();
+		currDefense = Opponents[0]->getDefense();
+
+		currStrengthLoss = Opponents[0]->strengthloss(currAttack);
+
+		std::cout << "Opponent 2's Attack:  " << currAttack  << std::endl;
+		std::cout << "Opponent 1's Defense: " << currDefense << std::endl;
+		std::cout << "\nStrength Loss:        " << currStrengthLoss << std::endl;
+
+		currOpp = 0;
+	}
+
+	std::cout << "\nRemaining Strength:" << std::endl;
+	std::cout << "Opponent 1: " << Opponents[0]->getStrength() << std::endl;
+	std::cout << "Opponent 2: " << Opponents[1]->getStrength() << "\n" << std::endl;
+
+	if (Opponents[0]->getStrength() < 1){
+		Opponents[0]->setLives(Opponents[0]->getLives() - 1);
+	}
+	else if	(Opponents[1]->getStrength() < 1) {
+		Opponents[1]->setLives(Opponents[1]->getLives() - 1);
+	}
+}
+
+void Game::play() {
+	while(Opponents[0]->getLives() != 0 || Opponents[1]->getLives() != 0) {
+		round();
+	}
+
+	std::cout << "GAME COMPLETE" << std::endl;
+	std::cout << "----------------------------------------" << std::endl;
+	if (Opponents[0]->getLives() == 0) {
+		std::cout << "The winner is: OPPONENT 2" << std::endl;
+	}
+	else {
+		std::cout << "The winner is: OPPONENT 1" << std::endl;
+	}
+
+}
+
+

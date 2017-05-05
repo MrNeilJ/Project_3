@@ -6,13 +6,21 @@
 #define PROJECT_3_GAME_HPP
 
 #include <iostream>
+#include "Creature.hpp"
 class Game {
 private:
-	int temp;
+	Creature* Opponents[2];
+	int currOpp;
+	int currAttack;
+	int currDefense;
+	int currStrengthLoss;
 
 public:
 	Game();
 	void classDescriptions(int);
+	void setOpponent(int, int);
+	void round();
+	void play();
 };
 
 

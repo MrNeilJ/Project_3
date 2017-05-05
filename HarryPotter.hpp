@@ -6,7 +6,9 @@
 #define PROJECT_3_HARRYPOTTER_HPP
 
 
-class HarryPotter {
+#include "Creature.hpp"
+
+class HarryPotter : public Creature {
 
 };
 

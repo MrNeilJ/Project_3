@@ -28,7 +28,40 @@ void Creature::setStrength(int input) {
 	strength = input;
 }
 
+void Creature::setLives(int input) {
+	lives = input;
+}
 
-void Creature::strengthloss(int opponentRoll) {
+int Creature::strengthloss(int opponentRoll) {
+	if ((opponentRoll - currDefense - armor) < 0) {
+		strength += 0;
+		return 0;
+	}
+	else {
+		strength -= (opponentRoll - currDefense - armor);
+		return (opponentRoll - currDefense - armor);
+	}
+
 
 }
+
+int Creature::getAttack() {
+	return currAttack;
+}
+
+int Creature::getDefense() {
+	return currDefense;
+}
+
+int Creature::getLives() {
+	return lives;
+}
+
+int Creature::getStrength() {
+	return strength;
+}
+
+
+
+
+

@@ -13,6 +13,7 @@ private:
 	Dice 	defense;
 	int		armor;
 	int 	strength;
+	int 	lives;
 
 	int		currAttack;
 	int 	currDefense;
@@ -22,11 +23,16 @@ public:
 	void setDefense(Dice);
 	void setArmor(int);
 	void setStrength(int);
+	void setLives(int);
 
 
 	void rollAttack();
 	void rollDefense();
-	virtual void strengthloss(int);
+	virtual int strengthloss(int);
+	int getLives();
+	int getAttack();
+	int getDefense();
+	int getStrength();
 
 
 };

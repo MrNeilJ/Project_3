@@ -6,7 +6,9 @@
 #define PROJECT_3_MEDUSA_HPP
 
 
-class Medusa {
+#include "Creature.hpp"
+
+class Medusa : public Creature{
 
 };
 
