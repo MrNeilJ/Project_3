@@ -10,6 +10,7 @@ Barbarian::Barbarian() {
 	setDefense(Dice(2, 6));
 	setArmor(0);
 	setStrength(12);
+	setLives(1);
 
 }
 

@@ -104,7 +104,7 @@ void Game::round() {
 }
 
 void Game::play() {
-	while(Opponents[0]->getLives() != 0 || Opponents[1]->getLives() != 0) {
+	while(Opponents[0]->getLives() != 0 && Opponents[1]->getLives() != 0) {
 		round();
 	}
 
@@ -117,6 +117,12 @@ void Game::play() {
 		std::cout << "The winner is: OPPONENT 1" << std::endl;
 	}
 
+}
+
+Game::~Game() {
+	delete Opponents[0];
+	delete Opponents[1];
+	*Opponents = nullptr;
 }
 
 

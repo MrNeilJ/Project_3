@@ -17,6 +17,7 @@ private:
 
 public:
 	Game();
+	~Game();
 	void classDescriptions(int);
 	void setOpponent(int, int);
 	void round();

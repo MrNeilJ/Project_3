@@ -10,7 +10,7 @@ Dice::Dice() {
 	numDie 	= 1;
 }
 
-Dice::Dice(int n, int totalDie) {
+Dice::Dice(int totalDie, int n) {
 	sides 	= n;
 	numDie 	= totalDie;
 }
