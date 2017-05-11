@@ -9,7 +9,12 @@
 #include "Creature.hpp"
 
 class Medusa : public Creature{
+private:
 
+public:
+	Medusa();
+	int Glare();
+	int getAttack();
 };
 
 

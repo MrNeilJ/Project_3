@@ -5,19 +5,19 @@
 #include "Creature.hpp"
 
 void Creature::rollAttack() {
-	currAttack = attack.roll();
+	currAttack = attackDie.roll();
 }
 
 void Creature::rollDefense() {
-	currDefense = defense.roll();
+	currDefense = defenseDie.roll();
 }
 
 void Creature::setAttack(Dice input) {
-	attack = input;
+	attackDie = input;
 }
 
 void Creature::setDefense(Dice input) {
-	defense = input;
+	defenseDie = input;
 }
 
 void Creature::setArmor(int input) {

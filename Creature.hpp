@@ -9,8 +9,8 @@
 
 class Creature {
 private:
-	Dice 	attack;
-	Dice 	defense;
+	Dice 	attackDie;
+	Dice 	defenseDie;
 	int		armor;
 	int 	strength;
 	int 	lives;
@@ -25,12 +25,19 @@ public:
 	void setStrength(int);
 	void setLives(int);
 
+	virtual int strengthloss(int);
 
+	// Dice Rollers
 	void rollAttack();
 	void rollDefense();
-	virtual int strengthloss(int);
+
+	// Attack and Defense Layout
+	virtual int attack() = 0;
+	virtual int defend() = 0;
+
+	// Getters
 	int getLives();
-	int getAttack();
+	virtual int getAttack();
 	int getDefense();
 	int getStrength();
 

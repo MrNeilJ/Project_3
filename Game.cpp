@@ -67,8 +67,8 @@ void Game::round() {
 
 		currStrengthLoss = Opponents[1]->strengthloss(currAttack);
 
-		std::cout << "Opponent 1's Attack:  " << currAttack  << std::endl;
-		std::cout << "Opponent 2's Defense: " << currDefense << std::endl;
+		std::cout << "Opponent 1's Attack:  "   << currAttack  << std::endl;
+		std::cout << "Opponent 2's Defense: "   << currDefense << std::endl;
 		std::cout << "\nStrength Loss:        " << currStrengthLoss << std::endl;
 
 		currOpp = 1;
@@ -84,8 +84,8 @@ void Game::round() {
 
 		currStrengthLoss = Opponents[0]->strengthloss(currAttack);
 
-		std::cout << "Opponent 2's Attack:  " << currAttack  << std::endl;
-		std::cout << "Opponent 1's Defense: " << currDefense << std::endl;
+		std::cout << "Opponent 2's Attack:  "   << currAttack  << std::endl;
+		std::cout << "Opponent 1's Defense: "   << currDefense << std::endl;
 		std::cout << "\nStrength Loss:        " << currStrengthLoss << std::endl;
 
 		currOpp = 0;
