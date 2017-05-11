@@ -13,8 +13,9 @@ private:
 public:
 	Barbarian();
 
+	int attack();
+
+	int defend(int);
+
 };
-
-
-
 #endif //PROJECT_3_BARBARIAN_HPP

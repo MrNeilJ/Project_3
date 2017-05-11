@@ -28,8 +28,8 @@ public:
 	virtual int strengthloss(int);
 
 	// Dice Rollers
-	void rollAttack();
-	void rollDefense();
+	int rollAttack();
+	int rollDefense();
 
 	// Attack and Defense Layout
 	virtual int attack() = 0;

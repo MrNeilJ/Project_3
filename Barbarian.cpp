@@ -14,3 +14,12 @@ Barbarian::Barbarian() {
 
 }
 
+int Barbarian::attack() {
+	return rollAttack();
+}
+
+int Barbarian::defend(int damageDone) {
+
+}
+
+

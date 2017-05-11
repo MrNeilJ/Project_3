@@ -4,14 +4,22 @@
 
 #include "Creature.hpp"
 
-void Creature::rollAttack() {
-	currAttack = attackDie.roll();
+
+/********************************************
+ * DICE ROLLERS
+ ********************************************/
+int Creature::rollAttack() {
+	return attackDie.roll();
 }
 
-void Creature::rollDefense() {
-	currDefense = defenseDie.roll();
+int Creature::rollDefense() {
+	 return defenseDie.roll();
 }
 
+
+/********************************************
+ * SETTERS
+ ********************************************/
 void Creature::setAttack(Dice input) {
 	attackDie = input;
 }
@@ -32,6 +40,10 @@ void Creature::setLives(int input) {
 	lives = input;
 }
 
+
+/********************************************
+ * HEALTH MODIFIERS
+ ********************************************/
 int Creature::strengthloss(int opponentRoll) {
 	if ((opponentRoll - currDefense - armor) < 0) {
 		strength += 0;
@@ -41,10 +53,12 @@ int Creature::strengthloss(int opponentRoll) {
 		strength -= (opponentRoll - currDefense - armor);
 		return (opponentRoll - currDefense - armor);
 	}
-
-
 }
 
+
+/********************************************
+ * GETTERS
+ ********************************************/
 int Creature::getAttack() {
 	return currAttack;
 }
