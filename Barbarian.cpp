@@ -15,11 +15,31 @@ Barbarian::Barbarian() {
 }
 
 int Barbarian::attack() {
-	return rollAttack();
+	int temp = rollAttack();
+	setCurrAttack(temp);
+	return temp;
 }
 
 int Barbarian::defend(int damageDone) {
+	int temp = rollDefense();
+	setCurrDefense(temp);
+}
 
+
+
+void Barbarian::attackDescription(int attackDamage) {
+	if (attackDamage > 0) {
+		std::cout << "swung their axe valiantly, dealing " << attackDamage << " damage." << std::endl;
+	}
+	else {
+		std::cout << "couldn't muster up the strength to raise their axe, causing them to do "
+				  << attackDamage << " damage." << std::endl;
+	}
+
+}
+
+void Barbarian::defenseDescription(int) {
+	return;
 }
 
 

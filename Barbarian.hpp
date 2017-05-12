@@ -17,5 +17,7 @@ public:
 
 	int defend(int);
 
+	void attackDescription(int);
+	void defenseDescription(int);
 };
 #endif //PROJECT_3_BARBARIAN_HPP

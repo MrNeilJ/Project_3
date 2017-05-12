@@ -40,18 +40,27 @@ void Creature::setLives(int input) {
 	lives = input;
 }
 
+void Creature::setCurrAttack(int atkDamage) {
+	currAttack = atkDamage;
+}
+
+void Creature::setCurrDefense(int defensePts) {
+	currDefense = defensePts;
+}
+
+
 
 /********************************************
  * HEALTH MODIFIERS
  ********************************************/
-int Creature::strengthloss(int opponentRoll) {
+void Creature::strengthloss(int opponentRoll) {
 	if ((opponentRoll - currDefense - armor) < 0) {
 		strength += 0;
-		return 0;
+		damageReceived = 0;
 	}
 	else {
 		strength -= (opponentRoll - currDefense - armor);
-		return (opponentRoll - currDefense - armor);
+		damageReceived = (opponentRoll - currDefense - armor);
 	}
 }
 
@@ -73,6 +82,14 @@ int Creature::getLives() {
 
 int Creature::getStrength() {
 	return strength;
+}
+
+int Creature::getArmor() {
+	return armor;
+}
+
+int Creature::getDamageReceived() {
+	return damageReceived;
 }
 
 

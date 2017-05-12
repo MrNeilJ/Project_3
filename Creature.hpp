@@ -6,6 +6,7 @@
 #define PROJECT_3_CREATURE_HPP
 
 #include "Dice.hpp"
+#include <iostream>
 
 class Creature {
 private:
@@ -17,6 +18,7 @@ private:
 
 	int		currAttack;
 	int 	currDefense;
+	int		damageReceived;
 public:
 	// Setters
 	void setAttack(Dice);
@@ -24,8 +26,10 @@ public:
 	void setArmor(int);
 	void setStrength(int);
 	void setLives(int);
+	void setCurrAttack(int);
+	void setCurrDefense(int);
 
-	virtual int strengthloss(int);
+	virtual void strengthloss(int);
 
 	// Dice Rollers
 	int rollAttack();
@@ -33,13 +37,19 @@ public:
 
 	// Attack and Defense Layout
 	virtual int attack() = 0;
-	virtual int defend() = 0;
+	virtual int defend(int) = 0;
+	virtual int strengthLoss(int) = 0;
+
+	virtual void attackDescription(int) = 0;
+	virtual void defenseDescription(int) = 0;
 
 	// Getters
 	int getLives();
 	virtual int getAttack();
 	int getDefense();
 	int getStrength();
+	int getArmor();
+	int getDamageReceived();
 
 
 };

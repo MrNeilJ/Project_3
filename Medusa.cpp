@@ -13,11 +13,7 @@ Medusa::Medusa() {
 	setLives(1);
 }
 
-int Medusa::Glare() {
-	std::cout << "(Used Glare)";
-	// We will set the value in glare to be a high value.
-	return  500;
-}
+
 
 int Medusa::getAttack() {
 	return Creature::getAttack();

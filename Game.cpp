@@ -54,41 +54,51 @@ void Game::setOpponent(int currOpp, int userCreature) {
 }
 
 void Game::round() {
-	// If it is oppenent one's turn
+	// If it is opponent one's turn
 
 	if (currOpp == 0) {
 		std::cout << "OPPONENT 1's TURN TO ATTACK:" << std::endl;
 		std::cout << "----------------------------------------" << std::endl;
-		Opponents[0]->rollAttack();
-		currAttack = Opponents[0]->getAttack();
 
-		Opponents[1]->rollDefense();
-		currDefense = Opponents[1]->getDefense();
+		Opponents[0]->attack();
+		Opponents[1]->defend(Opponents[0]->getAttack());
 
-		currStrengthLoss = Opponents[1]->strengthloss(currAttack);
 
-		std::cout << "Opponent 1's Attack:  "   << currAttack  << std::endl;
-		std::cout << "Opponent 2's Defense: "   << currDefense << std::endl;
-		std::cout << "\nStrength Loss:        " << currStrengthLoss << std::endl;
+		Opponents[0]->attackDescription(Opponents[1]->getDamageReceived());
+		Opponents[1]->defenseDescription(Opponents[1]->getDefense());
+
+
+
+		// Print the actual results for the round
+		std::cout << "ROUND STATS" << std::endl;
+		std::cout << "----------------------------------------" << std::endl;
+		std::cout << "Opponent 1's Attack Roll:  "   << Opponents[0]->getAttack()  << std::endl;
+		std::cout << "Opponent 2's Defense Roll: "   << Opponents[1]->getDefense() << std::endl;
+		std::cout << "\nRound Strength Loss:        " << Opponents[1]->getDamageReceived() << std::endl;
 
 		currOpp = 1;
 	}
 	else {
 		std::cout << "OPPONENT 2's TURN TO ATTACK:" << std::endl;
 		std::cout << "----------------------------------------" << std::endl;
-		Opponents[1]->rollAttack();
-		currAttack = Opponents[1]->getAttack();
 
-		Opponents[0]->rollDefense();
-		currDefense = Opponents[0]->getDefense();
+		Opponents[1]->attack();
+		Opponents[0]->defend(Opponents[1]->getAttack());
 
-		currStrengthLoss = Opponents[0]->strengthloss(currAttack);
 
-		std::cout << "Opponent 2's Attack:  "   << currAttack  << std::endl;
-		std::cout << "Opponent 1's Defense: "   << currDefense << std::endl;
-		std::cout << "\nStrength Loss:        " << currStrengthLoss << std::endl;
+		Opponents[1]->attackDescription(Opponents[0]->getDamageReceived());
+		Opponents[0]->defenseDescription(Opponents[0]->getDefense());
 
-		currOpp = 0;
+
+
+		// Print the actual results for the round
+		std::cout << "ROUND STATS" << std::endl;
+		std::cout << "----------------------------------------" << std::endl;
+		std::cout << "Opponent 2's Attack Roll:  "   << Opponents[1]->getAttack()  << std::endl;
+		std::cout << "Opponent 1's Defense Roll: "   << Opponents[0]->getDefense() << std::endl;
+		std::cout << "\nRound Strength Loss:        " << Opponents[0]->getDamageReceived() << std::endl;
+
+		currOpp = 1;
 	}
 
 	std::cout << "\nRemaining Strength:" << std::endl;
