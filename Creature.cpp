@@ -48,6 +48,11 @@ void Creature::setCurrDefense(int defensePts) {
 	currDefense = defensePts;
 }
 
+void Creature::setDamageReceived(int userInput) {
+	damageReceived = userInput;
+}
+
+
 
 
 /********************************************
@@ -91,6 +96,7 @@ int Creature::getArmor() {
 int Creature::getDamageReceived() {
 	return damageReceived;
 }
+
 
 
 

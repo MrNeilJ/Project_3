@@ -14,15 +14,24 @@ Barbarian::Barbarian() {
 
 }
 
-int Barbarian::attack() {
+void Barbarian::attack() {
 	int temp = rollAttack();
 	setCurrAttack(temp);
-	return temp;
 }
 
-int Barbarian::defend(int damageDone) {
+void Barbarian::defend(int damageDone) {
+	// Roll the Barbs defense dice
 	int temp = rollDefense();
+
+	// Save that value to a variable for later
 	setCurrDefense(temp);
+
+	// Modify their overall health value.
+	strengthloss(damageDone);
+
+	// Save the value so we know how much damage was done in the last attack
+	setDamageReceived(damageDone);
+
 }
 
 

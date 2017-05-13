@@ -30,15 +30,16 @@ public:
 	void setCurrDefense(int);
 
 	virtual void strengthloss(int);
+	void setDamageReceived(int);
 
 	// Dice Rollers
 	int rollAttack();
 	int rollDefense();
 
 	// Attack and Defense Layout
-	virtual int attack() = 0;
-	virtual int defend(int) = 0;
-	virtual int strengthLoss(int) = 0;
+	virtual void attack() = 0;
+	virtual void defend(int) = 0;
+	virtual void strengthLoss(int) = 0;
 
 	virtual void attackDescription(int) = 0;
 	virtual void defenseDescription(int) = 0;

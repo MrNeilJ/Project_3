@@ -13,8 +13,13 @@ private:
 
 public:
 	Medusa();
-	int Glare();
-	int getAttack();
+
+	void attack();
+	void defend(int);
+
+	void attackDescription(int);
+	void defenseDescription(int);
+
 };
 
 

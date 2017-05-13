@@ -13,9 +13,9 @@ private:
 public:
 	Barbarian();
 
-	int attack();
+	void attack();
 
-	int defend(int);
+	void defend(int);
 
 	void attackDescription(int);
 	void defenseDescription(int);
