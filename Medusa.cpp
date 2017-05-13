@@ -11,6 +11,8 @@ Medusa::Medusa() {
 	setArmor(3);
 	setStrength(8);
 	setLives(1);
+	setSpecial(0);
+
 }
 
 void Medusa::attack() {
@@ -35,26 +37,22 @@ void Medusa::defend(int damageDone) {
 	setCurrDefense(temp);
 
 	// Modify their overall health value.
-	strengthloss(damageDone);
-
-	// Save the value so we know how much damage was done in the last attack
-	setDamageReceived(damageDone);
-
+	strengthLoss(damageDone);
 }
 
 void Medusa::attackDescription(int attackDamage) {
-	if (attackDamage > 299) {
-		std::cout << "locked eyes with her opponent, and used her glare ability" << std::endl;
+	if (attackDamage > 200) {
+		std::cout << "Medusa locked eyes with her opponent, and used her glare ability" << std::endl;
 	}
-	if (attackDamage > 0) {
-		std::cout << "used her snakes to bite her opponent." << std::endl;
+	else if (attackDamage > 0) {
+		std::cout << "Medusa used her snakes to bite her opponent." << std::endl;
 	}
 	else {
-		std::cout << "commanded her snakes to strike, but they didn't listen." << std::endl;
+		std::cout << "Medusa commanded her snakes to strike, but they didn't listen." << std::endl;
 	}
 }
 
-void Medusa::defenseDescription(int) {
+void Medusa::defenseDescription(int special) {
 	return;
 }
 

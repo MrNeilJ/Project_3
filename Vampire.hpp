@@ -9,8 +9,19 @@
 #include "Creature.hpp"
 
 class Vampire : public Creature{
+private:
 
+public:
+	Vampire();
+
+	void attack();
+
+	void defend(int);
+
+	void attackDescription(int);
+	void defenseDescription(int);
 };
+
 
 
 #endif //PROJECT_3_VAMPIRE_HPP

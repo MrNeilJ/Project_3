@@ -17,7 +17,7 @@ void Game::classDescriptions(int userChoice) {
 		std::cout << "Think Conan or Hercules from the movies. Big sword, big muscles, bare torso.\n" << std::endl;
 	}
 	else if (userChoice == 3) {
-		std::cout << "They are small (6” tall), fast and tough. So they are hard to hit and can take\n"
+		std::cout << "They are small (6\' tall), fast and tough. So they are hard to hit and can take\n"
 					 "some damage. As for the attack value, you can do a LOT of damage when you can \n"
 					 "crawl inside the armor or clothing of your opponent.\n" << std::endl;
 	}
@@ -32,7 +32,7 @@ void Game::classDescriptions(int userChoice) {
 }
 
 Game::Game() {
-	currOpp = -1;
+	currOpp = 0;
 }
 
 void Game::setOpponent(int currOpp, int userCreature) {
@@ -87,7 +87,7 @@ void Game::round() {
 
 
 		Opponents[1]->attackDescription(Opponents[0]->getDamageReceived());
-		Opponents[0]->defenseDescription(Opponents[0]->getDefense());
+		Opponents[0]->defenseDescription(Opponents[0]->getSpecial());
 
 
 
@@ -96,9 +96,9 @@ void Game::round() {
 		std::cout << "----------------------------------------" << std::endl;
 		std::cout << "Opponent 2's Attack Roll:  "   << Opponents[1]->getAttack()  << std::endl;
 		std::cout << "Opponent 1's Defense Roll: "   << Opponents[0]->getDefense() << std::endl;
-		std::cout << "\nRound Strength Loss:        " << Opponents[0]->getDamageReceived() << std::endl;
+		std::cout << "\nRound Strength Loss:       " << Opponents[0]->getDamageReceived() << std::endl;
 
-		currOpp = 1;
+		currOpp = 0;
 	}
 
 	std::cout << "\nRemaining Strength:" << std::endl;

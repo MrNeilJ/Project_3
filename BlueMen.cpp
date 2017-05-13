@@ -10,6 +10,8 @@ BlueMen::BlueMen() {
 	setArmor(3);
 	setStrength(12);
 	setLives(1);
+	setSpecial(0);
+
 }
 
 void BlueMen::attack() {
@@ -25,10 +27,7 @@ void BlueMen::defend(int damageDone) {
 	setCurrDefense(temp);
 
 	// Modify their overall health value.
-	strengthloss(damageDone);
-
-	// Save the value so we know how much damage was done in the last attack
-	setDamageReceived(damageDone);
+	strengthLoss(damageDone);
 
 	// Check to see if we need to modify their defense die
 	if(getStrength() < 4) {
@@ -39,12 +38,12 @@ void BlueMen::defend(int damageDone) {
 	}
 }
 
-void BlueMen::attackDescription(int) {
-	if (getAttack() > 1) {
-		std::cout << "jumped onto their opponent, pummeling them to the floor" << std::endl;
+void BlueMen::attackDescription(int attackDamage) {
+	if (attackDamage > 0) {
+		std::cout << "The Blue Men jumped onto their opponent, pummeling them to the floor" << std::endl;
 	}
 	else {
-		std::cout << "bumped into it's teammate, and began bickering, ignoring their opponent." << std::endl;
+		std::cout << "One Blue Man bumped into it's teammate, and began bickering, ignoring their opponent." << std::endl;
 	}
 }
 

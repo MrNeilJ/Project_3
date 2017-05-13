@@ -11,6 +11,7 @@ Barbarian::Barbarian() {
 	setArmor(0);
 	setStrength(12);
 	setLives(1);
+	setSpecial(0);
 
 }
 
@@ -27,10 +28,7 @@ void Barbarian::defend(int damageDone) {
 	setCurrDefense(temp);
 
 	// Modify their overall health value.
-	strengthloss(damageDone);
-
-	// Save the value so we know how much damage was done in the last attack
-	setDamageReceived(damageDone);
+	strengthLoss(damageDone);
 
 }
 
@@ -38,11 +36,10 @@ void Barbarian::defend(int damageDone) {
 
 void Barbarian::attackDescription(int attackDamage) {
 	if (attackDamage > 0) {
-		std::cout << "swung their axe valiantly, dealing " << attackDamage << " damage." << std::endl;
+		std::cout << "The Barbarian swung their axe valiantly." << std::endl;
 	}
 	else {
-		std::cout << "couldn't muster up the strength to raise their axe, causing them to do "
-				  << attackDamage << " damage." << std::endl;
+		std::cout << "The Barbarian couldn't muster up the strength to raise their axe..." << std::endl;
 	}
 
 }

@@ -6,6 +6,7 @@
 #define PROJECT_3_GAME_HPP
 
 #include <iostream>
+#include <memory>
 #include "Creature.hpp"
 class Game {
 private:

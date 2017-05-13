@@ -18,7 +18,7 @@ Dice::Dice(int totalDie, int n) {
 int Dice::roll() {
 	int total = 0;
 	for (int i = 0; i < numDie; i++) {
-		total += (rand() % sides);
+		total += ((rand() % sides)+ 1);
 	}
 	return total;
 }

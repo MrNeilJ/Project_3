@@ -58,7 +58,7 @@ void Creature::setDamageReceived(int userInput) {
 /********************************************
  * HEALTH MODIFIERS
  ********************************************/
-void Creature::strengthloss(int opponentRoll) {
+void Creature::strengthLoss(int opponentRoll) {
 	if ((opponentRoll - currDefense - armor) < 0) {
 		strength += 0;
 		damageReceived = 0;
@@ -95,6 +95,14 @@ int Creature::getArmor() {
 
 int Creature::getDamageReceived() {
 	return damageReceived;
+}
+
+void Creature::setSpecial(int userInput) {
+	special = userInput;
+}
+
+int Creature::getSpecial() {
+	return special;
 }
 
 

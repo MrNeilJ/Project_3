@@ -19,6 +19,7 @@ private:
 	int		currAttack;
 	int 	currDefense;
 	int		damageReceived;
+	bool	special;
 public:
 	// Setters
 	void setAttack(Dice);
@@ -28,8 +29,9 @@ public:
 	void setLives(int);
 	void setCurrAttack(int);
 	void setCurrDefense(int);
+	void setSpecial(int);
 
-	virtual void strengthloss(int);
+	void setstrengthLoss(int);
 	void setDamageReceived(int);
 
 	// Dice Rollers
@@ -39,7 +41,7 @@ public:
 	// Attack and Defense Layout
 	virtual void attack() = 0;
 	virtual void defend(int) = 0;
-	virtual void strengthLoss(int) = 0;
+	void strengthLoss(int);
 
 	virtual void attackDescription(int) = 0;
 	virtual void defenseDescription(int) = 0;
@@ -51,6 +53,7 @@ public:
 	int getStrength();
 	int getArmor();
 	int getDamageReceived();
+	int getSpecial();
 
 
 };

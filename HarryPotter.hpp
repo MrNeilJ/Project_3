@@ -9,6 +9,17 @@
 #include "Creature.hpp"
 
 class HarryPotter : public Creature {
+private:
+
+public:
+	HarryPotter();
+
+	void attack();
+
+	void defend(int);
+
+	void attackDescription(int);
+	void defenseDescription(int);
 
 };
 
