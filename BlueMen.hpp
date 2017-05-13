@@ -9,6 +9,16 @@
 #include "Creature.hpp"
 
 class BlueMen : public Creature {
+private:
+
+public:
+	BlueMen();
+
+	void attack();
+	void defend(int);
+
+	void attackDescription(int);
+	void defenseDescription(int);
 
 };
 

@@ -13,10 +13,6 @@ Medusa::Medusa() {
 	setLives(1);
 }
 
-
-
-
-
 void Medusa::attack() {
 	int temp = rollAttack();
 
