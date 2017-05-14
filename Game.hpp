@@ -15,6 +15,7 @@ private:
 	int currAttack;
 	int currDefense;
 	int currStrengthLoss;
+	int turn = 1;
 
 public:
 	Game();

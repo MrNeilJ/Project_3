@@ -70,7 +70,7 @@ void Game::round() {
 
 
 		// Print the actual results for the round
-		std::cout << "ROUND STATS" << std::endl;
+		std::cout << "ROUND " << turn << " STATS" << std::endl;
 		std::cout << "----------------------------------------" << std::endl;
 		std::cout << "Opponent 1's Attack Roll:  "   << Opponents[0]->getAttack()  << std::endl;
 		std::cout << "Opponent 2's Defense Roll: "   << Opponents[1]->getDefense() << std::endl;
@@ -92,8 +92,7 @@ void Game::round() {
 
 
 		// Print the actual results for the round
-		std::cout << "ROUND STATS" << std::endl;
-		std::cout << "----------------------------------------" << std::endl;
+		std::cout << "ROUND " << turn << " STATS" << std::endl;		std::cout << "----------------------------------------" << std::endl;
 		std::cout << "Opponent 2's Attack Roll:  "   << Opponents[1]->getAttack()  << std::endl;
 		std::cout << "Opponent 1's Defense Roll: "   << Opponents[0]->getDefense() << std::endl;
 		std::cout << "\nRound Strength Loss:       " << Opponents[0]->getDamageReceived() << std::endl;
@@ -111,6 +110,8 @@ void Game::round() {
 	else if	(Opponents[1]->getStrength() < 1) {
 		Opponents[1]->setLives(Opponents[1]->getLives() - 1);
 	}
+
+	turn++;
 }
 
 void Game::play() {

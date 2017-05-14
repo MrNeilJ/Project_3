@@ -1,3 +1,15 @@
+/**************************************************************
+ * Author: Neil Johnson
+ *
+ * Date: 4.14.2017
+ *
+ * Description: This is the main application for the monster
+ * battle royale program.  This will guide the user into making
+ * choices as to which monstesrs they would like have fight one
+ * another.  In addition to this it will run the game functions
+ * that will print out the results of every round.
+ **************************************************************/
+
 #include <iostream>
 #include <time.h>
 #include "menuMaker.hpp"
@@ -29,8 +41,7 @@ int main() {
 
 		menuMaker monsterConfirmation("Is this the character you'd like to play as?",
 									  "Yes",
-									  "No",
-									  "Character Select");
+									  "No");
 
 		int monsterChoice = -1;
 		int monsterConfirm = -1;
@@ -66,7 +77,7 @@ int main() {
 				monsterConfirm = monsterConfirmation.getResponse();
 			}
 
-		} while ((monsterChoice == 6) || (monsterConfirm > 1 && monsterConfirm < 4));
+		} while ((monsterChoice == 6) || (monsterConfirm > 1 && monsterConfirm < 3));
 
 		gameTime.setOpponent(i, monsterChoice);
 	}
