@@ -14,6 +14,8 @@ public:
 	// Constructors
 	Dice();
 	Dice(int, int);
+
+	// Member function to roll the dice
 	int roll();
 };
 

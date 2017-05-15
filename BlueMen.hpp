@@ -12,11 +12,14 @@ class BlueMen : public Creature {
 private:
 
 public:
+	// Constructor
 	BlueMen();
 
+	// Attack / Defense Functions
 	void attack();
 	void defend(int);
 
+	// Attack / Defense Descriptions
 	void attackDescription(int);
 	void defenseDescription(int);
 

@@ -1,8 +1,21 @@
-//
-// Created by Neil on 5/2/2017.
-//
+/**************************************************************
+ * Author: Neil Johnson
+ *
+ * Date: 4.14.2017
+ *
+ * Description: This is the member function file for the Vampire
+ * class.  This class allows us to make a Vampire with basic
+ * attacks.  We can call attacks, defense, and describe what
+ * kind of attacks they can do.
+ **************************************************************/
 
 #include "Vampire.hpp"
+
+/**************************************************************
+ *                  Vampire::Vampire
+ *  This is the constructor function for the Vampire class.
+ *  It builds the object properly,
+ **************************************************************/
 Vampire::Vampire() {
 	setAttack(Dice(2, 6));
 	setDefense(Dice(2, 6));
@@ -12,11 +25,23 @@ Vampire::Vampire() {
 
 }
 
+/**************************************************************
+ *                  Vampire::attack
+ *  This is the main attack feature, it does a standard roll of
+ *  the dice.
+ **************************************************************/
 void Vampire::attack() {
 	int temp = rollAttack();
 	setCurrAttack(temp);
 }
 
+/**************************************************************
+ *                  Vampire::defend
+ *  This is the main defend feature, it does a standard roll of
+ *  the dice. In addition it will then also check to see if a
+ *  special roll was created, if so, it will negate all damage
+ *  applied to it.
+ **************************************************************/
 void Vampire::defend(int damageDone) {
 	// Check to see if the vampires special will activate
 	setSpecial(rand() % 2);
@@ -41,7 +66,11 @@ void Vampire::defend(int damageDone) {
 }
 
 
-
+/**************************************************************
+ *                  Vampire::attackDescription()
+ *  This prints to the console the types of attacks that
+ *  the vampire class can produce
+ **************************************************************/
 void Vampire::attackDescription(int attackDamage) {
 	if (attackDamage > 0) {
 		std::cout << "The Vampire bit their opponent, sucking their blood." << std::endl;
@@ -52,6 +81,11 @@ void Vampire::attackDescription(int attackDamage) {
 
 }
 
+/**************************************************************
+ *                  Vampire::defenseDescription()
+ *  This prints to the console the types of defensive manuevers that
+ *  the vampire class can produce.  This includes the charm feature.
+ **************************************************************/
 void Vampire::defenseDescription(int specialInput) {
 	if (getSpecial()) {
 		std::cout << "But the Vampire locked eyes with them, and used his charm to subdue them." << std::endl;

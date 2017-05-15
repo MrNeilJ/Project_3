@@ -1,9 +1,23 @@
-//
-// Created by Neil on 5/2/2017.
-//
+/**************************************************************
+ * Author: Neil Johnson
+ *
+ * Date: 4.14.2017
+ *
+ * Description: This is the member function file for the BlueMen
+ * class.  This class allows us to make a Barbarian with basic
+ * attacks.  We can call attacks, defense, and describe what
+ * kind of attacks they can do.
+ **************************************************************/
 
 #include "BlueMen.hpp"
 
+
+/**************************************************************
+ *                  BlueMen::BlueMen()
+ *  This is the constructor for the BlueMen class, it is used
+ *  to build the class information such as strength, die types
+ *  and amount of lives.
+ **************************************************************/
 BlueMen::BlueMen() {
 	setAttack(Dice(2, 10));
 	setDefense(Dice(3, 6));
@@ -14,11 +28,21 @@ BlueMen::BlueMen() {
 
 }
 
+/**************************************************************
+ *                  BlueMen::attack()
+ *  Rolls the dice for the BlueMen and saves the value to the
+ *  currAttack value.
+ **************************************************************/
 void BlueMen::attack() {
 	int temp = rollAttack();
 	setCurrAttack(temp);
 }
 
+/**************************************************************
+ *                  BlueMen::Defend()
+ *  Rolls the dice for the BlueMen and saves the value to the
+ *  currDefense value.
+ **************************************************************/
 void BlueMen::defend(int damageDone) {
 	// Roll the BlueMens defense dice
 	int temp = rollDefense();
@@ -38,6 +62,11 @@ void BlueMen::defend(int damageDone) {
 	}
 }
 
+/**************************************************************
+ *                  BlueMen::attackDescription()
+ *  Utilizes the overall damage done, then prints to the console
+ *  an explanation of that attack type.
+ **************************************************************/
 void BlueMen::attackDescription(int attackDamage) {
 	if (attackDamage > 0) {
 		std::cout << "The Blue Men jumped onto their opponent, pummeling them to the floor" << std::endl;
@@ -47,6 +76,11 @@ void BlueMen::attackDescription(int attackDamage) {
 	}
 }
 
+/**************************************************************
+ *                  BlueMen::attackDescription()
+ *  Utilizes the overall damage done, then prints to the console
+ *  an explanation of that attack type.
+ **************************************************************/
 void BlueMen::defenseDescription(int) {
 	return;
 }

@@ -1,6 +1,13 @@
-//
-// Created by Neil on 5/2/2017.
-//
+/**************************************************************
+ * Author: Neil Johnson
+ *
+ * Date: 4.14.2017
+ *
+ * Description: This is the file for the Game class.  This class
+ * is what really creates the layout for the game.  It provides
+ * the user with the functionality for the game to run, initiate
+ * creature creation, as well as describing each class.
+ **************************************************************/
 
 #include "Game.hpp"
 #include "Vampire.hpp"
@@ -9,6 +16,12 @@
 #include "Medusa.hpp"
 #include "HarryPotter.hpp"
 
+
+/**************************************************************
+ *                  Game::classDescriptions()
+ *  This is a function that allows us to get a brief description
+ *  of each class printed to the console.
+ **************************************************************/
 void Game::classDescriptions(int userChoice) {
 	if (userChoice == 1) {
 		std::cout << "Suave, debonair, but vicious and surprisingly resilient!\n" << std::endl;
@@ -31,10 +44,20 @@ void Game::classDescriptions(int userChoice) {
 
 }
 
+/**************************************************************
+ *                  Game::Game()
+ *  This is the constructor for the game class.  It simply sets
+ *  the current opponent object to 0;
+ **************************************************************/
 Game::Game() {
 	currOpp = 0;
 }
 
+/**************************************************************
+ *                  Game::setOpponent()
+ *  This is a member function that allows the user to set the
+ *  value stored in one of the Opponents ptrs to a creature value.
+ **************************************************************/
 void Game::setOpponent(int currOpp, int userCreature) {
 	if (userCreature == 1) {
 		Opponents[currOpp] = new Vampire;
@@ -53,6 +76,12 @@ void Game::setOpponent(int currOpp, int userCreature) {
 	}
 }
 
+/**************************************************************
+ *                  Game::round()
+ *  This is a function that creates s single round of the matches
+ *  allowing the user to go through on attack sequence and mark the
+ *  damage to the other user.
+ **************************************************************/
 void Game::round() {
 	// If it is opponent one's turn
 
@@ -114,6 +143,11 @@ void Game::round() {
 	turn++;
 }
 
+/**************************************************************
+ *                  Game::play()
+ *  This is a member function that causes the game to loop indefinitely
+ *  until one of the players health is under 0 and lives are at 0.
+ **************************************************************/
 void Game::play() {
 	while(Opponents[0]->getLives() != 0 && Opponents[1]->getLives() != 0) {
 		round();
@@ -130,6 +164,12 @@ void Game::play() {
 
 }
 
+
+/**************************************************************
+ *                  Game::~Game()
+ *  Destructor that allows us to free the memory of dynamically
+ *  allocated pointers.
+ **************************************************************/
 Game::~Game() {
 	delete Opponents[0];
 	delete Opponents[1];
